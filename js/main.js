@@ -2,28 +2,11 @@
 
 $(function () {
 
-
-  // if (window.matchMedia('(max-width: 999px)').matches) {
-  //   $('.surf__slider').slick({
-
-  //     infinite: true,
-  //     slidesToShow: 3,
-  //     slidesToScroll: 1,
-  //     prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-  //     nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
-  //     asNavFor: '.map__slider, .travel__slider-items,.sleep__slider-items,.shop__slider-items',
-  //     focusOnSelect: true,
-
-  //   });
-  // }
-
-
-
   $('.header__slider-items').slick({
     infinite: true,
     fade: true,
-    prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
+    prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
     asNavFor: '.slider__dots'
   });
 
@@ -39,8 +22,8 @@ $(function () {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
+    prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
     asNavFor: '.map__slider, .travel__slider-items,.sleep__slider-items,.shop__slider-items',
     focusOnSelect: true,
     responsive: [
@@ -128,23 +111,23 @@ $(function () {
 
   $('.travel__slider-items').slick({
     infinite: true,
-    prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
+    prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
     asNavFor: '.surf__slider, .map__slider,.sleep__slider-items,.shop__slider-items',
   });
 
   $('.sleep__slider-items').slick({
     infinite: true,
-    prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
+    prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
     asNavFor: '.surf__slider, .map__slider, .travel__slider-items,.shop__slider-items',
   });
 
 
   $('.shop__slider-items').slick({
     infinite: true,
-    prevArrow: "<img src='../img/top__arrows-left.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../img/top__arrows-right.svg' class='next' alt='2'>",
+    prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
     asNavFor: '.surf__slider, .map__slider, .travel__slider-items,.sleep__slider-items',
   });
 
