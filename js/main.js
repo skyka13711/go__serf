@@ -1,7 +1,7 @@
 
 
 $(function () {
-
+  new WOW().init();
 
   $('.header__slider-items').slick({
     infinite: true,
@@ -216,15 +216,17 @@ $(function () {
 
   function checkH() {
     let windowH = $(window).scrollTop(),
-      clientH = $(window).height(),
-      end = $('#shop').offset().top;
+      clientH = $(window).height()
     if (windowH > clientH) {
       $('.up__arrow').css('display', 'block')
+      $('.arrows__inner').css('left','135px')
 
     }
     else {
       $('.down__arrow').css('display', 'block')
       $('.up__arrow').css('display', 'none')
+      $('.arrows__inner').css('left','200px')
+
     }
 
   }
