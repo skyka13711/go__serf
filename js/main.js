@@ -96,7 +96,6 @@ $(function () {
       }, {
         breakpoint: 400,
         settings: {
-          centerMode: false,
           slidesToShow: 1,
 
         }
@@ -194,10 +193,7 @@ $(function () {
     scroll(h)
   })
 
-  $('.down__arrow').on('click', function () {
-    let h = $('#shop').offset().top
-    scroll(h)
-  })
+
 
   $('.up__arrow').on('click', function () {
     scroll(0)
@@ -211,7 +207,6 @@ $(function () {
 
   $(window).on('scroll', function () {
     checkH()
-    arrows()
   })
 
   function checkH() {
@@ -219,31 +214,16 @@ $(function () {
       clientH = $(window).height()
     if (windowH > clientH) {
       $('.up__arrow').css('display', 'block')
-      $('.arrows__inner').css('left', '135px')
+      $('.arrows__inner').css('left', '55px')
 
     }
     else {
-      $('.down__arrow').css('display', 'block')
       $('.up__arrow').css('display', 'none')
-      $('.arrows__inner').css('left', '200px')
-
     }
 
   }
-  function arrows() {
-    mainH = window.pageYOffset,
-      end = $('#shop').offset().top;
-    if (mainH > end) {
-      $('.down__arrow').css('display', 'none')
-    }
-    else {
-      $('.down__arrow').css('display', 'block')
 
-    }
-    else {
-      $('.down__arrow').css('display', 'block')
-  }
-  }
+
 
   checkH()
 
