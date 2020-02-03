@@ -239,7 +239,7 @@ $(function () {
     else {
       $('.down__arrow').css('display', 'block')
   }
-
+  }
 
   checkH()
 
