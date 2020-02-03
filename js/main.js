@@ -240,9 +240,6 @@ $(function () {
       $('.down__arrow').css('display', 'block')
 
     }
-    else {
-      $('.down__arrow').css('display', 'block')
-  }
   }
 
   checkH()
