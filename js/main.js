@@ -219,13 +219,13 @@ $(function () {
       clientH = $(window).height()
     if (windowH > clientH) {
       $('.up__arrow').css('display', 'block')
-      $('.arrows__inner').css('left','135px')
+      $('.arrows__inner').css('left', '135px')
 
     }
     else {
       $('.down__arrow').css('display', 'block')
       $('.up__arrow').css('display', 'none')
-      $('.arrows__inner').css('left','200px')
+      $('.arrows__inner').css('left', '200px')
 
     }
 
@@ -235,7 +235,10 @@ $(function () {
       end = $('#shop').offset().top;
     if (mainH > end) {
       $('.down__arrow').css('display', 'none')
-      console.log('end')
+    }
+    else {
+      $('.down__arrow').css('display', 'block')
+
     }
   }
 
