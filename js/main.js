@@ -235,7 +235,6 @@ $(function () {
       end = $('#shop').offset().top;
     if (mainH > end) {
       $('.down__arrow').css('display', 'none')
-      console.log('end')
     }
   }
 
