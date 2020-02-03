@@ -2,6 +2,7 @@
 
 $(function () {
 
+
   $('.header__slider-items').slick({
     infinite: true,
     fade: true,
@@ -181,11 +182,64 @@ $(function () {
     $(this).toggleClass('burger-activ')
     $('.aside__menu').slideToggle('slow')
   })
-  $('.aside__menu a').on('click', function () {
-    $('.aside__menu').slideUp('slow')
-    $('.burger').removeClass('burger-activ');
 
+  $('.aside__menu a').on('click', function (e) {
+    if (window.innerWidth < 480) {
+      $('.aside__menu').slideUp('slow')
+      $('.burger').removeClass('burger-activ');
+    }
+    e.preventDefault();
+    let section = $(this).attr('href'),
+      h = $(section).offset().top
+    scroll(h)
   })
+
+  $('.down__arrow').on('click', function () {
+    let h = $('#shop').offset().top
+    scroll(h)
+  })
+
+  $('.up__arrow').on('click', function () {
+    scroll(0)
+  })
+
+  function scroll(h) {
+    $('html, body').animate({
+      scrollTop: h
+    }, 700)
+  }
+
+  $(window).on('scroll', function () {
+    checkH()
+    arrows()
+  })
+
+  function checkH() {
+    let windowH = $(window).scrollTop(),
+      clientH = $(window).height(),
+      end = $('#shop').offset().top;
+    if (windowH > clientH) {
+      $('.up__arrow').css('display', 'block')
+
+    }
+    else {
+      $('.down__arrow').css('display', 'block')
+      $('.up__arrow').css('display', 'none')
+    }
+
+  }
+  function arrows() {
+    mainH = window.pageYOffset,
+      end = $('#shop').offset().top;
+    if (mainH > end) {
+      $('.down__arrow').css('display', 'none')
+      console.log('end')
+    }
+  }
+
+
+  checkH()
+
 
 });
 
