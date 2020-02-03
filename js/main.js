@@ -236,6 +236,8 @@ $(function () {
     if (mainH > end) {
       $('.down__arrow').css('display', 'none')
     }
+    else {
+      $('.down__arrow').css('display', 'block')
   }
 
 
