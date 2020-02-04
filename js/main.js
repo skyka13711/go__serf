@@ -120,7 +120,8 @@ $(function () {
     infinite: true,
     prevArrow: "<img src='img/top__arrows-left.svg' class='prev' alt='1'>",
     nextArrow: "<img src='img/top__arrows-right.svg' class='next' alt='2'>",
-    asNavFor: '.surf__slider, .map__slider, .travel__slider-items,.shop__slider-items',
+    asNavFor: '.surf__slider, .map__slider, .travel__slider-items,.shop__slider-items'
+
   });
 
 
@@ -132,9 +133,9 @@ $(function () {
   });
 
 
-  jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up"><img src="img/plus.svg"></div><div class="quantity-button quantity-down"><img src="img/minus.svg"></div></div>').insertAfter('.quantity input');
-  jQuery('.quantity').each(function () {
-    var spinner = jQuery(this),
+  $('<div class="quantity-nav"><div class="quantity-button quantity-up"><img src="img/plus.svg"></div><div class="quantity-button quantity-down"><img src="img/minus.svg"></div></div>').insertAfter('.quantity input');
+  $('.quantity').each(function () {
+    var spinner = $(this),
       input = spinner.find('input[type="number"]'),
       btnUp = spinner.find('.quantity-up'),
       btnDown = spinner.find('.quantity-down'),
@@ -148,7 +149,8 @@ $(function () {
       } else {
         var newVal = oldValue + 1;
       }
-      spinner.find("input").val(newVal);
+      spinner.find("input").removeAttr("value");
+      spinner.find("input").attr("value", newVal);
       spinner.find("input").trigger("change");
     });
 
@@ -159,19 +161,12 @@ $(function () {
       } else {
         var newVal = oldValue - 1;
       }
-      spinner.find("input").val(newVal);
+      spinner.find("input").removeAttr("value");
+      spinner.find("input").attr("value", newVal);
       spinner.find("input").trigger("change");
     });
 
   });
-
-  $('input').on('change', function () {
-    let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests');
-    $('.summ').html('$ ' + summ);
-  });
-
-  let summ = $('.nights').val() * $('.summ').data('nights') + ($('.guests').val() - 1) * $('.summ').data('guests');
-  $('.summ').html('$ ' + summ);
 
   $('.shop__surf-box__circle').on('click', function () {
     $(this).toggleClass('activ')
@@ -222,9 +217,33 @@ $(function () {
     }
 
   }
-
-
   checkH()
+
+  $('input[type=number]').on('change', function () {
+    let nightsVal = $('.slick-current .nights').val() || $('.nights').val(),
+      guestsVal = $('.slick-current .guests').val() || $('.guests').val();
+    calc(nightsVal, guestsVal)
+  })
+
+
+  $(function () {
+    $('.sleep__slider-items').on('afterChange', function () {
+      let nightsVal = $('.slick-current .nights').val(),
+        guestsVal = $('.slick-current .guests').val()
+      calc(nightsVal, guestsVal)
+      console.log(nightsVal, guestsVal)
+    })
+
+  });
+  function calc(nightsVal = 5, guestsVal = 4) {
+    dataN = document.querySelector('.summ').getAttribute('data-nights'),
+      dataG = document.querySelector('.summ').getAttribute('data-guests');
+    summ = nightsVal * dataN + (guestsVal - 1) * dataG;
+    $('.summ').html('$ ' + summ)
+    console.log(nightsVal)
+  }
+  calc()
+
 
 
 });
