@@ -220,22 +220,19 @@ $(function () {
   checkH()
 
   $('input[type=number]').on('change', function () {
-    let nightsVal = $('.slick-current .nights').val() || $('.nights').val(),
-      guestsVal = $('.slick-current .guests').val() || $('.guests').val();
-    calc(nightsVal, guestsVal)
+    calc()
   })
 
 
   $(function () {
     $('.sleep__slider-items').on('afterChange', function () {
-      let nightsVal = $('.slick-current .nights').val(),
-        guestsVal = $('.slick-current .guests').val()
-      calc(nightsVal, guestsVal)
-      console.log(nightsVal, guestsVal)
+      calc()
     })
 
   });
-  function calc(nightsVal = 5, guestsVal = 4) {
+  function calc() {
+    let nightsVal = $('.slick-current .nights').val() || $('.nights').val(),
+      guestsVal = $('.slick-current .guests').val() || $('.guests').val();
     dataN = document.querySelector('.summ').getAttribute('data-nights'),
       dataG = document.querySelector('.summ').getAttribute('data-guests');
     summ = nightsVal * dataN + (guestsVal - 1) * dataG;
